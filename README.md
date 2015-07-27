@@ -8,3 +8,12 @@ More info in my blog: http://phoboslab.org/log/2015/04/reverse-engineering-wipeo
 
 
 MIT License
+
+
+this fork is meant to be a playable racing game in a similar fashion as these types of racing games were the best things ever!
+
+hopeful goals that make this better.
+
+Fully upgradeable vehicles (in terms of engines, magnets, sideboost)
+playable in a browser
+hopefully cool track features!
