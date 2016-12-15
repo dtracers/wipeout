@@ -20,3 +20,12 @@ MIT License
  
  - Some faces from PRM models seem to be backwards. This only is a problem for some WOXL models. E.g. the cannopy on Spilskinake or some rocks on Vostock Island are backwards. Maybe this just didn't matter, because the original game didn't cull back faces? Or is there a flag or face normal for some polygon types?
  
+ 
+
+this fork is meant to be a playable racing game in a similar fashion as these types of racing games were the best things ever!
+
+hopeful goals that make this better.
+
+Fully upgradeable vehicles (in terms of engines, magnets, sideboost)
+playable in a browser
+hopefully cool track features!
