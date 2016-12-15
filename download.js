@@ -19,14 +19,28 @@ Wipeout.funcs.loadBinaries = function(urls, callback) {
 			folderpast = save.substr(save.indexOf("/"));
 			folderbefore = save.substr(0,  save.indexOf("/"));
 			folder = folderpast.substr(1, save.indexOf("/"));
-			console.log("NEW TRACK");
-			console.log(url);
-			console.log(save);
-			console.log(folderbefore + ":" + folder);
+		//	console.log("NEW TRACK");
+		//	console.log(url);
+		//	console.log(save);
+		//	console.log(folderbefore + ":" + folder);
 			try {
-				fs.mkdir(folderbefore + "/" + folder);
+				fs.mkdirSync(folderbefore + "/" + folder);
 			} catch(e) {}
-			request(url).pipe(fs.createWriteStream(save))
+			(function(url, save) {
+				
+				request
+				.get(url)
+				.on('error', function(err) {
+					console.log(err)
+				})
+				 .on('response', function(response) {
+					console.log(response.statusCode) // 200
+					console.log(response.headers['content-type']) // 'image/png'
+					console.log(url);
+					console.log(save);
+				  })
+				.pipe(fs.createWriteStream(save));
+			})(url, save);
 		})(name, urls[name]);
 
 	}
@@ -84,7 +98,7 @@ Wipeout.Tracks.Wipeout2097 = [
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK13", name: "Valparaiso", hasTEXFile: true},
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK20", name: "Phenitia Park", hasTEXFile: true},
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK02", name: "Gare d'Europa", hasTEXFile: true},
-	{path: "Whttp://phoboslab.org/wipeout/IPEOUT2/TRACK17", name: "Odessa Keys", hasTEXFile: true},
+	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK17", name: "Odessa Keys", hasTEXFile: true},
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK06", name: "Vostok Island", hasTEXFile: true},
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK07", name: "Spilskinanke", hasTEXFile: true},
 	{path: "http://phoboslab.org/wipeout/WIPEOUT2/TRACK04", name: "Unfinished Track"},
